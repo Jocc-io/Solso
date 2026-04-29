@@ -1,0 +1,136 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-display: 'Outfit', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  /* Dark futuristic theme by default */
+  --background: 224 71% 4%;
+  --foreground: 213 31% 91%;
+  
+  --card: 224 71% 4%;
+  --card-foreground: 213 31% 91%;
+  
+  --popover: 224 71% 4%;
+  --popover-foreground: 213 31% 91%;
+  
+  --primary: 263 70% 50%;
+  --primary-foreground: 210 40% 98%;
+  
+  --secondary: 222 47% 11%;
+  --secondary-foreground: 210 40% 98%;
+  
+  --muted: 223 47% 11%;
+  --muted-foreground: 215 20% 65%;
+  
+  --accent: 180 100% 50%; /* Neon cyan */
+  --accent-foreground: 224 71% 4%;
+  
+  --destructive: 0 63% 31%;
+  --destructive-foreground: 210 40% 98%;
+  
+  --border: 216 34% 17%;
+  --input: 216 34% 17%;
+  --ring: 263 70% 50%;
+  
+  --radius: 0.75rem;
+}
+
+@layer base {
+  body {
+    @apply bg-background text-foreground antialiased selection:bg-primary/30;
+    font-family: var(--font-display);
+    background-image: 
+      radial-gradient(circle at 15% 50%, rgba(139, 92, 246, 0.08), transparent 25%),
+      radial-gradient(circle at 85% 30%, rgba(6, 182, 212, 0.08), transparent 25%);
+    background-attachment: fixed;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-bold tracking-tight;
+  }
+}
+
+/* Custom Scrollbar for Chat */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 6px;
+}
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background-color: hsl(var(--border));
+  border-radius: 20px;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background-color: hsl(var(--muted-foreground));
+}
+
+.wallet-adapter-button-trigger {
+  background: linear-gradient(-45deg, #034361,#42164b);
+  border-radius: 16px !important;
+  font-size: 12px !important;
+  font-weight: 500 !important;
+  color: #3ee1fdfd !important;
+}
+.wallet-adapter-button-trigger:hover {
+ background: linear-gradient(-45deg, #42164b,#034361);
+}
+.wallet-adapter-modal-wrapper {
+  background: linear-gradient(-45deg, #034361,#42164b) !important;
+}
+/* Hide original text but keep element */
+.wallet-adapter-modal-title {
+  color: transparent !important; 
+  font-size: 0 !important;       
+  line-height: 0 !important;
+}
+
+.wallet-adapter-modal-title::before {
+  content: "Welcome to SolSo" !important;
+  color: #ade3fc !important;   
+  font-size: 20px !important;  
+  font-weight: 700 !important;
+  display: block;
+  text-align: center;
+  margin-bottom: 16px;
+}
+
+.wallet-adapter-modal-title::after {
+  content: "Please connect your wallet" !important;
+  color: #ffffffbe !important;   
+  font-size: 12px !important;  
+  font-weight: 400 !important;
+  display: block;
+  text-align: center;
+  margin-top: 16px;
+}
+
+
+.wallet-adapter-dropdown-list-active {
+  background: linear-gradient(-45deg, #03436100,#42164b00) !important;
+  width: 100% !important;
+}
+.wallet-adapter-dropdown-list-item {
+ background: linear-gradient(-45deg, #42164b,#034361) ;
+}
+.wallet-adapter-dropdown-list-item:hover {
+ background: linear-gradient(-45deg, #034361,#42164b);
+}
+
+.glass-panel {
+  @apply bg-background/60 backdrop-blur-xl border border-border/50;
+}
+
+.neon-text {
+  text-shadow: 0 0 10px rgba(6, 182, 212, 0.5);
+}
+body {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+}
